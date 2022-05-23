@@ -1,0 +1,12 @@
+version: "3"
+services:
+  node:
+    image: node:16
+    working_dir: /home/user/workspaces/
+    volumes:
+      - ./home:/home/user/workspaces/
+      - ./entrypoint.sh:/root/entrypoint.sh
+    entrypoint: /root/entrypoint.sh
+    environment:
+      - LOCAL_UID=${LOCAL_UID}
+      - LOCAL_GID=${LOCAL_GID}
